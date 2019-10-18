@@ -46,3 +46,9 @@ CONFIG       += c++17
 RESOURCES    += images.qrc
 TRANSLATIONS += trans_pl.ts
 
+DISTFILES += \
+    ../LICENSE.md \
+    ../README.md \
+    ../doc/screen1.png \
+    ../doc/screen2.png
+
