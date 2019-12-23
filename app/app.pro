@@ -47,6 +47,7 @@ RESOURCES    += images.qrc
 TRANSLATIONS += trans_pl.ts
 
 DISTFILES += \
+    ../.travis.yml \
     ../LICENSE.md \
     ../README.md \
     ../doc/screen1.png \

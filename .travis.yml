@@ -1,0 +1,28 @@
+language: cpp
+compiler:
+  - clang
+  - gcc
+
+dist: bionic
+
+services:
+  - xvfb
+
+before_install:
+  # C++14
+  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo apt-get update -qq
+
+install:
+  # Qt5
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+
+before_script:
+      - export DISPLAY=:99.0
+
+script:
+  - if [ "${CC}" == "clang" ]; then export CC="clang" ; export CXX="clang++" ; echo "Rexported clang" ; fi
+  - if [ "${CC}" == "gcc" ]; then export CC="g++" ; export CXX="g++" ; echo "Rexported gcc" ; fi
+  - qmake -qt=qt5 app.pro -spec linux-$CC
+  - make
