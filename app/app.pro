@@ -48,6 +48,7 @@ TRANSLATIONS += trans_pl.ts
 
 DISTFILES += \
     ../.travis.yml \
+    ../.appveyor.yml \
     ../LICENSE.md \
     ../README.md \
     ../doc/screen1.png \
