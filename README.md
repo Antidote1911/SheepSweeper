@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/Antidote1911/SheepSweeper.svg?branch=master)](https://travis-ci.org/Antidote1911/SheepSweeper)
+[![Build status](https://ci.appveyor.com/api/projects/status/djxbxdh0pnvjwkqb?svg=true)](https://ci.appveyor.com/project/Antidote1911/sheepsweeper)
+
 # SheepSweeper
 Clone of MineSweeper game written in C++ and Qt5 originaly
 forked here:
