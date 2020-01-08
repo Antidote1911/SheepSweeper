@@ -51,7 +51,7 @@ install:
 before_build:
   # Prepare the out-of-source build directory
   - cd %APPVEYOR_BUILD_FOLDER%
-  - qmake app.pro
+  - qmake SheepSweeper.pro
 
 build_script:
   - '%make%'
