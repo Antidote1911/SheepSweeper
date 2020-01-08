@@ -29,8 +29,8 @@ environment:
     - QTDIR: C:\Qt\5.13.2\msvc2017_64
 
 configuration:
-  - debug
-  # - release
+  #- debug
+   - release
 
 init:
   - git config --global core.autocrlf input
@@ -50,10 +50,20 @@ install:
 
 before_build:
   # Prepare the out-of-source build directory
-  - mkdir %APPVEYOR_BUILD_FOLDER%-build
-  - qmake -o %APPVEYOR_BUILD_FOLDER%-build -r -Wall -Wlogic -Wparser CONFIG+=%CONFIGURATION% %APPVEYOR_BUILD_FOLDER%
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - qmake app.pro
 
 build_script:
-  - cd %APPVEYOR_BUILD_FOLDER%-build
   - '%make%'
 
+after_build:
+    - cd %APPVEYOR_BUILD_FOLDER%
+    - mkdir SheepSweeper_win_x64
+    - cd SheepSweeper_win_x64
+    - xcopy %APPVEYOR_BUILD_FOLDER%\app\release\app.exe %APPVEYOR_BUILD_FOLDER%\SheepSweeper_win_x64\
+    - windeployqt app.exe
+
+artifacts:
+  #- path: \release\arsenic-*.exe
+  - path: SheepSweeper_win_x64
+    type: zip
